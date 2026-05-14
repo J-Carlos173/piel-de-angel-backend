@@ -4,6 +4,5 @@ buildCommand = "npm install && npm run build"
 
 [deploy]
 startCommand = "npx medusa db:migrate && node .medusa/server/index.js"
-healthcheckPath = "/health"
-healthcheckTimeout = 300
 restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
