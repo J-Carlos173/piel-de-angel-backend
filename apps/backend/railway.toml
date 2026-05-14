@@ -1,8 +1,3 @@
-[build]
-builder = "nixpacks"
-buildCommand = "npm install --include=dev && MEDUSA_DISABLE_MEDUSA_ADMIN=true npm run build"
-
 [deploy]
-startCommand = "npx medusa db:migrate && node .medusa/server/index.js"
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
