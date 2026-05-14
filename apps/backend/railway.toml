@@ -6,7 +6,3 @@ buildCommand = "npm install && npm run build"
 startCommand = "npx medusa db:migrate && node .medusa/server/index.js"
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
-
-[[deploy.environmentVariables]]
-name = "PORT"
-value = "9000"
