@@ -12,6 +12,7 @@ RUN npm run build
 
 ENV NODE_ENV=production
 ENV MEDUSA_DISABLE_MEDUSA_ADMIN=true
+ENV NODE_OPTIONS=--max-old-space-size=400
 
 EXPOSE 9000
 
