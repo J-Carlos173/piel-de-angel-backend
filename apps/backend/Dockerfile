@@ -24,4 +24,6 @@ ENV NODE_OPTIONS=--max-old-space-size=512
 
 EXPOSE 9000
 
-CMD ["sh", "-c", "/app/node_modules/.bin/medusa db:migrate && /app/node_modules/.bin/medusa start"]
+ENV MEDUSA_DISABLE_MEDUSA_ADMIN=true
+
+CMD ["sh", "-c", "/app/node_modules/.bin/medusa db:migrate && /app/node_modules/.bin/medusa user -e ${MEDUSA_ADMIN_EMAIL} -p ${MEDUSA_ADMIN_PASSWORD} 2>/dev/null || true && /app/node_modules/.bin/medusa start"]
