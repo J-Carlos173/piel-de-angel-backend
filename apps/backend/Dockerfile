@@ -15,7 +15,7 @@ ENV MEDUSA_DISABLE_MEDUSA_ADMIN=false
 RUN NODE_OPTIONS=--max-old-space-size=2048 /app/node_modules/.bin/medusa build
 
 ENV NODE_ENV=production
-ENV NODE_OPTIONS=--max-old-space-size=768
+ENV NODE_OPTIONS=--max-old-space-size=4096
 
 EXPOSE 9000
 
