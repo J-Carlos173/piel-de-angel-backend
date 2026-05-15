@@ -18,7 +18,7 @@ COPY apps/backend/ ./apps/backend/
 WORKDIR /app/apps/backend
 
 ENV MEDUSA_DISABLE_MEDUSA_ADMIN=true
-RUN npm run build
+RUN /app/node_modules/.bin/medusa build
 
 ENV NODE_ENV=production
 ENV MEDUSA_DISABLE_MEDUSA_ADMIN=true
@@ -26,4 +26,4 @@ ENV NODE_OPTIONS=--max-old-space-size=512
 
 EXPOSE 9000
 
-CMD ["sh", "-c", "/app/node_modules/.bin/medusa db:migrate && node .medusa/server/index.js"]
+CMD ["sh", "-c", "/app/node_modules/.bin/medusa db:migrate && /app/node_modules/.bin/medusa start"]
