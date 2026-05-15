@@ -11,6 +11,7 @@ COPY apps/backend/ ./apps/backend/
 
 WORKDIR /app/apps/backend
 
+ENV MEDUSA_DISABLE_MEDUSA_ADMIN=false
 RUN NODE_OPTIONS=--max-old-space-size=2048 /app/node_modules/.bin/medusa build
 
 ENV NODE_ENV=production
