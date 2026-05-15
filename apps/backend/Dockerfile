@@ -12,7 +12,7 @@ COPY apps/backend/ ./apps/backend/
 WORKDIR /app/apps/backend
 
 ENV MEDUSA_DISABLE_MEDUSA_ADMIN=false
-RUN NODE_OPTIONS=--max-old-space-size=2048 /app/node_modules/.bin/medusa build
+RUN NODE_OPTIONS=--max-old-space-size=2048 /app/node_modules/.bin/medusa build && echo "=== Build output ===" && find .medusa -name "index.html" 2>/dev/null || echo "NO index.html found"
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS=--max-old-space-size=4096
